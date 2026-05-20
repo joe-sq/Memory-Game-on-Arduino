@@ -1,3 +1,5 @@
+https://github.com/user-attachments/assets/6ae138a8-4cae-4cb9-8363-480d744d5a68
+
 # Multiplayer Memory Game Console
 
 An interactive, microcontroller-based embedded system designed to challenge and test players' memory and reaction speed. Built on the Arduino Uno platform using AVR programming, this console generates dynamic LED light and tone sequences that players must remember and accurately reproduce. 
