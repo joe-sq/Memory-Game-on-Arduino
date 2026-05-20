@@ -163,26 +163,35 @@ All challenger mode wins are saved to EEPROM for career tracking.
 
 ---
 
-​📱 MIT App Inventor Integration
-​A companion Android/iOS mobile controller application designed in MIT App Inventor allows Player 3 to compete wirelessly against the local hardware stations via the HC-05 module.
-​🔗 MAC Address Mapping Configuration
-​To configure the application interface for your specific hardware platform:
+​## 📱 MIT App Inventor Integration
 
-​Power up the console and check your phone's standard Bluetooth discovery list to locate your 12-character physical hardware address (e.g., 00:21:13:02:66:B8).
-​Open the project inside the MIT App Inventor interface, navigate to the Blocks Editor, and update the connection trigger blocks (when Connect_Button.Click) to send connection requests directly to that verified target string.
+A companion Android/iOS mobile controller application designed in MIT App Inventor allows **Player 3** to compete wirelessly against the local hardware stations via the HC-05 module.
 
-​🛑 Critical Core Protocol: Avoid BLE Components
+---
 
-​Hardware Profile: The HC-05 module utilized in this layout belongs to the Bluetooth Classic (BR/EDR) protocol family. It does not utilize or support Bluetooth Low Energy (BLE).
-​Component Settings: Within the App Inventor Designer interface, do not import or execute methods from the custom edu.mit.appinventor.ble extension. Instead, drop the native BluetoothClient object component into the workspace layout to handle standard Serial Port Profile (SPP) streams.
+## 🔗 MAC Address Mapping Configuration
 
-​🍏 Cross-Platform Handling: iOS Device Restrictions
-​When deploying and testing the workspace design through the native MIT AI2 Companion for iOS environment, note the following Apple sandboxing protocols:
+To configure the application interface for your specific hardware platform:
+1. Power up the console and check your phone's standard Bluetooth discovery list to locate your 12-character physical hardware address (e.g., `00:21:13:02:66:B8`).
+2. Open the project inside the MIT App Inventor interface, navigate to the **Blocks Editor**, and update the connection trigger blocks (`when Connect_Button.Click`) to send connection requests directly to that verified target string.
 
-​Hardware Address Obfuscation: To protect user privacy, iOS devices completely hide the static MAC address of external Bluetooth Classic peripherals.
-​Dynamic Software UUID Translation: iOS maps discoverable peripherals to a randomized software ID code called a UUID (Universally Unique Identifier).
-​Per-Device Instability: This generated UUID code is distinct to each specific iOS hardware unit. Two separate iPhones tracking the same console will show two completely different alphanumeric identifiers.
-​Development Workaround: Avoid embedding rigid, hardcoded string addresses within your execution blocks. Instead, integrate a dynamic ListPicker component. This forces the application to scan open frequencies dynamically, present the visible string identifier name (HC-05), and safely acquire the active connection reference token at execution runtime.
+---
+
+## 🛑 Critical Core Protocol: Avoid BLE Components
+
+* **Hardware Profile:** The HC-05 module utilized in this layout belongs to the **Bluetooth Classic (BR/EDR)** protocol family. It does *not* utilize or support Bluetooth Low Energy (BLE).
+* **Component Settings:** Within the App Inventor Designer interface, **do not** import or execute methods from the custom `edu.mit.appinventor.ble` extension. Instead, drop the native **`BluetoothClient`** object component into the workspace layout to handle standard Serial Port Profile (SPP) streams.
+
+---
+
+## 🍏 Cross-Platform Handling: iOS Device Restrictions
+
+When deploying and testing the workspace design through the native *MIT AI2 Companion for iOS* environment, note the following Apple sandboxing protocols:
+
+* **Hardware Address Obfuscation:** To protect user privacy, iOS devices completely hide the static MAC address of external Bluetooth Classic peripherals.
+* **Dynamic Software UUID Translation:** iOS maps discoverable peripherals to a randomized software ID code called a **UUID** (Universally Unique Identifier).
+* **Per-Device Instability:** This generated UUID code is distinct **to each specific iOS hardware unit**. Two separate iPhones tracking the same console will show two completely different alphanumeric identifiers.
+* **Development Workaround:** Avoid embedding rigid, hardcoded string addresses within your execution blocks. Instead, integrate a dynamic **`ListPicker`** component. This forces the application to scan open frequencies dynamically, present the visible string identifier name (`HC-05`), and safely acquire the active connection reference token at execution runtime.
 
 ---
 
