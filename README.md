@@ -72,7 +72,7 @@ An interactive, microcontroller-based embedded system designed to challenge and 
   * Non-blocking input polling for synchronous multiplayer races
 
 ### Hardware Components
-| Component | Quantity | Cost | Function |
+| Component | Quantity | Cost/EGP | Function |
 |-----------|----------|------|----------|
 | **Arduino Uno (ATmega328P)** | 1 | University | Main microcontroller & CPU |
 | **LEDs (RGB Set)** | 4 | University | Visual game sequence display |
