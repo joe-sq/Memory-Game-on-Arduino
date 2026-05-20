@@ -37,6 +37,13 @@ To elevate the device beyond a basic prototype, the system utilizes the ATmega32
 
 ---
 
+​⚡ Challenges Faced & Key Learnings
+
+​Hardware Debugging: Encountered a faulty initial LCD module that yielded no background brightness or characters despite pristine code configurations. Testing components individually isolated the hardware error, highlighting the necessity of modular debugging in mechatronics.
+​Resource Optimization: Utilized fast pointer arithmetic instead of heavy array indexing to handle memory allocation strings efficiently on the constrained ATmega328P processor.
+
+---
+
 ## 🚀 How to Run and Flash the Project
 
 ### Prerequisites
@@ -45,5 +52,10 @@ To elevate the device beyond a basic prototype, the system utilizes the ATmega32
 
 ### Steps
 1. Clone this repository:
-   ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+ ```bash
+   git clone https://github.com/joe-sq/Memory-Game-on-Arduino.git
+```
+
+2. Open the main controller workspace file in the Arduino IDE.
+3. Wire the hardware components according to the pin configurations defined in hardware.h (e.g., LEDs on Port D pins 4–7, Player 1         buttons on Port B pins 0–3).
+4. Connect your Arduino Uno via USB, select the correct COM port, and click Upload.
