@@ -1,3 +1,4 @@
+
 # Multiplayer Memory Game Console
 
 An interactive, microcontroller-based embedded system designed to challenge and test players' memory and reaction speed. Built on the Arduino Uno platform using AVR programming, this console generates innovative multiplayer memory game challenges!
@@ -366,7 +367,11 @@ After breadboard validation, components were transferred to a perfboard (PCB-lik
 
 **Resolution:** Opted to solder components onto an unmapped perfboard substrate, creating a stable, production-ready circuit without waiting for PCB fabrication.
 
-**Learning:** In embedded systems projects, have backup manufacturing options ready. Perfboards are viable alternatives when custom PCBs are unavailable.
+**Learning:** In embedded systems projects, have backup manufacturing options ready. Perfboards are viable alternatives when custom PCBs are unavailable.<img width="854" height="636" alt="WhatsApp Image 2026-04-29 at 9 38 26 PM" src="https://github.com/user-attachments/assets/55e2fe0e-a390-4f9f-98d0-d562cbd5d9a4" />
+<img width="745" height="566" alt="WhatsApp Image 2026-04-28 at 10 05 07 PM" src="https://github.com/user-attachments/assets/c82cdfd9-9a2f-4e8a-9516-4e32909d7a99" />
+<img width="565" height="475" alt="WhatsApp Image 2026-04-28 at 10 04 29 PM" src="https://github.com/user-attachments/assets/303fdd56-6585-45b8-9b41-8dbd0b536b0c" />
+<img width="644" height="498" alt="WhatsApp Image 2026-04-28 at 10 04 07 PM" src="https://github.com/user-attachments/assets/6b1ce52d-1e31-4f91-bce4-0e096136a0e4" />
+
 
 ---
 
