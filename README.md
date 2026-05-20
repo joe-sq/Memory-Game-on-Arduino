@@ -1,6 +1,6 @@
 # Multiplayer Memory Game Console
 
-An interactive, microcontroller-based embedded system designed to challenge and test players' memory and reaction speed. Built on the Arduino Uno platform using AVR programming, this console generates dynamic LED sequences and supports up to 3 concurrent players via hardware keypads and Bluetooth connectivity.
+An interactive, microcontroller-based embedded system designed to challenge and test players' memory and reaction speed. Built on the Arduino Uno platform using AVR programming, this console generates increasingly complex LED sequences that challenge players to replicate them perfectly.
 
 ![Memory Game Demo](https://github.com/user-attachments/assets/6ae138a8-4cae-4cb9-8363-480d744d5a68)
 
@@ -76,14 +76,14 @@ An interactive, microcontroller-based embedded system designed to challenge and 
 |-----------|----------|------|----------|
 | **Arduino Uno (ATmega328P)** | 1 | University | Main microcontroller & CPU |
 | **LEDs (RGB Set)** | 4 | University | Visual game sequence display |
-| **Push Buttons** | 8 | £88 | Player 1 & Player 2 inputs (4 each) |
-| **LCD Display (20x4)** | 1 | £220 | Menu, scores, and game information |
-| **Piezo Buzzer** | 1 | £30 | Audio feedback (success/failure tones) |
+| **Push Buttons** | 8 | £88.00 | Player 1 & Player 2 inputs (4 each) |
+| **LCD Display (20x4)** | 1 | £220.00 | Menu, scores, and game information |
+| **Piezo Buzzer** | 1 | £30.00 | Audio feedback (success/failure tones) |
 | **Resistors (100Ω)** | 4 | University | LED current limiting protection |
 | **Resistors (1kΩ)** | 3 | University | Signal stabilization & protection |
 | **Lithium-ion Batteries (3.7V)** | 2 | University | Power supply for portable operation |
-| **Dual Battery Holder** | 1 | £50 | Secure battery mounting & connections |
-| **HC-05 Bluetooth Module** | 1 | £235 | Wireless Player 3 communication |
+| **Dual Battery Holder** | 1 | £50.00 | Secure battery mounting & connections |
+| **HC-05 Bluetooth Module** | 1 | £235.00 | Wireless Player 3 communication |
 | **I2C LCD Backpack** | 1 | Included | LCD protocol interface |
 | **Breadboard + Perfboard** | 1 | University | Circuit assembly & soldering |
 
@@ -194,19 +194,17 @@ Memory-Game-on-Arduino/
 
 ## 💾 EEPROM Memory Management
 
-To elevate the device beyond a basic prototype, the system utilizes the ATmega328P's non-volatile EEPROM memory. Leaderboard rankings and individual high scores are permanently stored directly to memory and restored upon every boot.
+To elevate the device beyond a basic prototype, the system utilizes the ATmega328P's non-volatile EEPROM memory. Leaderboard rankings and individual high scores are permanently stored directly to memory, ensuring that career progression persists across power cycles.
 
 ### EEPROM Address Layout
-```
-Address  | Variable             | Size   | Purpose
----------|----------------------|--------|---------------------------
-0–1      | highScore            | int    | Solo Mode high score
-2–3      | p1Score              | int    | Duel Mode: Player 1 wins
-4–5      | p2Score              | int    | Duel Mode: Player 2 wins
-6–7      | p3Score              | int    | Duel Mode: Player 3 (BT) wins
-8–9      | chalP1Score          | int    | Challenger: Player 1 wins
-10–11    | chalP2Score          | int    | Challenger: Player 2 wins
-```
+| Address | Variable | Size | Purpose |
+|---------|----------|------|---------|
+| 0–1 | highScore | int | Solo Mode high score |
+| 2–3 | p1Score | int | Duel Mode: Player 1 wins |
+| 4–5 | p2Score | int | Duel Mode: Player 2 wins |
+| 6–7 | p3Score | int | Duel Mode: Player 3 (BT) wins |
+| 8–9 | chalP1Score | int | Challenger: Player 1 wins |
+| 10–11 | chalP2Score | int | Challenger: Player 2 wins |
 
 **Key Implementation Details:**
 - Addresses are spaced in 2-byte increments to accommodate future expansion to larger data types
@@ -221,7 +219,7 @@ Address  | Variable             | Size   | Purpose
 ## 🔧 Hardware Design
 
 ### Circuit Architecture
-The hardware design focuses on creating a robust, interactive gaming platform while ensuring all components integrate seamlessly with the microcontroller. The Arduino Uno serves as the central processing unit, providing digital I/O pins for LEDs, buttons, buzzer, and LCD interface.
+The hardware design focuses on creating a robust, interactive gaming platform while ensuring all components integrate seamlessly with the microcontroller. The Arduino Uno serves as the central processor, managing I/O, timing, and game logic with minimal latency to ensure fair competitive racing.
 
 **Component Layout:**
 - **Input Section:** 8 tactile push buttons (4 per player) connected to Ports B and C with pull-up resistors
@@ -252,10 +250,10 @@ The system uses **two 3.7V Lithium-ion cells** housed in a dual battery holder f
 ### Port C (Player 2 Buttons)
 | Arduino Pin | ATmega328P Bit | Component | Direction |
 |-------------|----------------|-----------|-----------|
-| A0 | PC0 | P2 Button 0 (Red) | Input |
-| A1 | PC1 | P2 Button 1 (Blue) | Input |
-| A2 | PC2 | P2 Button 2 (Green) | Input |
-| A3 | PC3 | P2 Button 3 (White) | Input |
+| A0 | PC4 | P2 Button 0 (Red) | Input |
+| A1 | PC5 | P2 Button 1 (Blue) | Input |
+| A2 | PC6 | P2 Button 2 (Green) | Input |
+| A3 | PC7 | P2 Button 3 (White) | Input |
 
 **Note:** Analog pins (A0-A3) are used as digital inputs, providing efficient hardware utilization on the ATmega328P.
 
@@ -338,16 +336,16 @@ After breadboard validation, components were transferred to a perfboard (PCB-lik
 ### Resource Optimization - Memory Constraints
 **Challenge:** The ATmega328P has only 2KB of SRAM. Naive array indexing and string handling quickly consumed precious memory, leaving insufficient space for game arrays and competitive race logic.
 
-**Resolution:** Implemented pointer arithmetic (`*(ptr + i)` instead of `arr[i]`) for sequence comparison in `compareSequences()`. This reduced CPU cycles per operation and allowed the compiler to generate more efficient machine code.
+**Resolution:** Implemented pointer arithmetic (`*(ptr + i)` instead of `arr[i]`) for sequence comparison in `compareSequences()`. This reduced CPU cycles per operation and allowed the compiler to generate more efficient machine code, freeing ~300 bytes of SRAM.
 
 **Learning:** On resource-constrained microcontrollers, low-level optimizations (bit manipulation, pointer arithmetic) are not premature optimization—they're essential. Every byte counts.
 
 ---
 
 ### Simultaneous Input Polling - Race Condition
-**Challenge:** Managing 3 players' inputs simultaneously required non-blocking logic. Initial attempts used blocking `delay()` calls, which prevented real-time race detection and allowed unfair advantages.
+**Challenge:** Managing 3 players' inputs simultaneously required non-blocking logic. Initial attempts used blocking `delay()` calls, which prevented real-time race detection and allowed unfair advantages for some players.
 
-**Resolution:** Rewrote input handlers (`getP1Instant()`, `getP2Instant()`, `getP3Instant()`) using falling-edge detection and state tracking. The main race loop now polls all inputs in parallel without waiting, enabling fair and responsive winner determination.
+**Resolution:** Rewrote input handlers (`getP1Instant()`, `getP2Instant()`, `getP3Instant()`) using falling-edge detection and state tracking. The main race loop now polls all inputs in parallel without blocking, ensuring all players are evaluated on equal footing.
 
 **Learning:** Real-time systems demand non-blocking architectures. Blocking calls kill responsiveness and fairness.
 
@@ -356,7 +354,7 @@ After breadboard validation, components were transferred to a perfboard (PCB-lik
 ### Bluetooth Integration - Serial Port Conflict
 **Challenge:** Integrating a Bluetooth module for Player 3 without sacrificing the hardware serial port (needed for debugging and development).
 
-**Resolution:** Used `SoftwareSerial` on Pins 2 & 3 to create a secondary UART for the HC-05 module. The primary UART (Pins 0 & 1) remains available for the Serial Monitor, allowing real-time debugging during competitive gameplay.
+**Resolution:** Used `SoftwareSerial` on Pins 2 & 3 to create a secondary UART for the HC-05 module. The primary UART (Pins 0 & 1) remains available for the Serial Monitor, allowing real-time debugging without hardware conflicts.
 
 **Learning:** Software serial communication is viable for low-bandwidth applications (9600 baud game input). Plan your hardware resources early to avoid future conflicts.
 
