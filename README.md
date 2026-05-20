@@ -5,6 +5,10 @@ An interactive, microcontroller-based embedded system designed to challenge and 
 
 ![Memory Game Demo](https://github.com/user-attachments/assets/6ae138a8-4cae-4cb9-8363-480d744d5a68)
 
+
+https://github.com/user-attachments/assets/7fdf469f-80aa-42e2-8428-b92479bc0ef8
+
+
 ---
 
 ## 🎓 Academic Metadata
