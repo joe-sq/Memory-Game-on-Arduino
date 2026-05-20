@@ -441,7 +441,6 @@ LiquidCrystal_I2C lcd(0x27, 20, 4);
 - [ ] **Power Optimization:** Implement sleep modes for the microcontroller itself (deeper than display backlight dimming)
 
 ### Long Term
-- [ ] **Mobile App Integration:** Develop a companion app to track scores and view statistics remotely
 - [ ] **Game Replay System:** Record and playback sequences for practice or streaming
 - [ ] **LED Matrix Upgrade:** Replace 4 discrete LEDs with an 8x8 addressable RGB matrix for visual variety
 - [ ] **Custom Firmware Updates:** Implement bootloader-based OTA (Over-The-Air) updates via Bluetooth
