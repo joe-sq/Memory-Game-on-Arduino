@@ -76,18 +76,19 @@ An interactive, microcontroller-based embedded system designed to challenge and 
 |-----------|----------|------|----------|
 | **Arduino Uno (ATmega328P)** | 1 | University | Main microcontroller & CPU |
 | **LEDs (RGB Set)** | 4 | University | Visual game sequence display |
-| **Push Buttons** | 8 | £88.00 | Player 1 & Player 2 inputs (4 each) |
-| **LCD Display (20x4)** | 1 | £220.00 | Menu, scores, and game information |
-| **Piezo Buzzer** | 1 | £30.00 | Audio feedback (success/failure tones) |
+| **Push Buttons** | 8 | 40 EGP | Player 1 & Player 2 inputs (4 each) |
+| **LCD Display (20x4)** | 1 | 220 EGP | Menu, scores, and game information |
+| **Piezo Buzzer** | 1 | 30 EGP | Audio feedback (success/failure tones) |
 | **Resistors (100Ω)** | 4 | University | LED current limiting protection |
 | **Resistors (1kΩ)** | 3 | University | Signal stabilization & protection |
 | **Lithium-ion Batteries (3.7V)** | 2 | University | Power supply for portable operation |
-| **Dual Battery Holder** | 1 | £50.00 | Secure battery mounting & connections |
-| **HC-05 Bluetooth Module** | 1 | £235.00 | Wireless Player 3 communication |
+| **Dual Battery Holder** | 1 | 50 EGP | Secure battery mounting & connections |
+| **HC-05 Bluetooth Module** | 1 | 235 EGP | Wireless Player 3 communication |
 | **I2C LCD Backpack** | 1 | Included | LCD protocol interface |
 | **Breadboard + Perfboard** | 1 | University | Circuit assembly & soldering |
 
-**Total Cost:** ~£623 (excluding university-provided components)
+**Total Out-of-Pocket Cost:** ~575 EGP (excluding university-provided components)
+
 
 ---
 
